@@ -1,0 +1,20 @@
+Resumé des notes de réunion de projet (PRES2) du mardi 3 mars 2020 (15h45) avec Mr. O. F.:
+----------------------------------------------
+Objectif principal, mettre en place une maquette fonctionnelle d'un système de stream de vidéo en 360°.
+Le but du projet est de montrer l'impact sur le réseau d'un stream en VR par rapport à un stream "classique" en full HD par exemple.
+Il faut utiliser de l'existant par exemple la lib GPAC qui permet de faire de la diffusion de contenu 360° est un bon point de départ.
+On pourra regarder du côté de HEVC aussi.
+
+Démonstration de la partie ROI en comparant le flux de source avec le flux de destination (montrer que l'on a bien un viewport plus petit, de la taille d'un écran).
+
+Pour la partie analyse, il faut tracer des courbes de débit, du nombre de paquets envoyés, perdus, etc. Le meilleur serait que les statistiques s'affichent en direct sur la démo.
+
+Avec DASH on doit pouvoir simuler des dégradations de performances en jouant sur la taille du tunnel et sur la qualité de la transmission.
+
+Aucune vidéo n'est à utiliser obligatoirement, on pourra télécharger n'importe quelle vidéo (libre de droits) pour tester notre démo.
+
+Le premier truc à faire est de lire la doc des systèmes existants (par exemples ceux des articles de notre bibliographie) et d'installer GPAC et de comprendre comment ça marche.
+Puis il faudra mettre en place une ligne complète de stream avec un serveur HTTP/DASH.
+----------------------------------------------
+
+FM
