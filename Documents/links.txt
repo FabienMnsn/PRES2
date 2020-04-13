@@ -1,0 +1,10 @@
+useful links:
+
+https://gpac.wp.imt.fr/
+https://gpac.wp.imt.fr/player/features/dash/
+
+
+à faire:
+-installer gpac
+-lire une vidéo 360 avec le player gpac
+-lire la meme video depuis un serveur local (http?)

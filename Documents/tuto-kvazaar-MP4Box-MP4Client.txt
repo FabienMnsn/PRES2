@@ -1,0 +1,83 @@
+
+##################################
+PARTIE (A) INSTALLATION DES OUTILS
+##################################
+
+0) Prérequis:
+
+	- installer l'encodeur kvazaar
+	- installer l'encodeur ffmpeg (pour convertir les vidéos)
+	- installer Gpac (MP4Box + MP4Client)
+	- avoir un fichier vidéo 360° au format mp4
+	- avoir un serveur web local (par exemple apache) et connaitre le chemin d'accès du dossier public_html (ou seront stockées les vidéos à streamer) 
+	- avoir beaucoup de place sur son disque dur (environ 90Go pour 2min de vidéo...)
+
+
+1) INSTALLATION de kvazzar
+	- Pour installer kvazaar il faut se placer dans son homedir (répertoire /home/nom_d'utilisateur/  pour débian)
+	- Ensuite il faut récupérer le code source intégral de kvazaar depuis leur github avec la commande :
+		git clone https://github.com/ultravideo/kvazaar.git
+	- un dossier nommé kvazaar/ est créér. Il faut rentrer dedans et faire les commandes suivantes :
+		./configure
+		make
+		sudo make install
+	- après avoir terminé la dernière commande kvazaar est installé vous pouvez voir le manuel avec la commande : 
+		man kvazaar
+		
+
+2) INSTALLATION de ffmpeg
+	- Pour installer ffmpeg il suffit de faire la commande :
+		sudo apt-get install ffmpeg
+	- Il est possible qu'une ou plusieur lib soient requise pour installer ffmpeg. Il faut alors installer toutes les lib avant d'installer ffmpeg 
+	- Pour tester l'installation de ffmpeg, vous pouvez taper la commande :
+		man ffmpeg
+
+
+3) INSTALLATION de Gpac
+	- Premièrement il faut se placer dans son homedir (/home/nom_utilisateur/)
+	- Ensuite il faut copier le code source de gpac depuis le github avec la commande suivante :
+		git clone https://github.com/gpac/gpac.git
+	- Ensuite on entre dans le dossier gpac/ qui vient d'être créé et on tape les commande suivantes :
+		./configure --static-mp4box --use-zlib=no
+		make -j4
+		sudo make install
+	- On peut vérifier que l'installation est bien faite avec la commande :
+		man MP4Box 
+		man MP4Client
+
+
+#############################################
+PARTIE (B) COMMENT STREAMER UNE VIDEO EN 360°
+#############################################
+
+1) Il faut un fichier vidéo 360° que l'on peut trouver un peu partout sur internet (je vais en ajouter sur le github comme ça on aura tous le même exemple)
+	- Il faut convertir le fichier source .mp4 au format yuv avec la commande suivante :
+		ffmpeg -i fichier.mp4 nouveau_fichier.yuv
+	- /!\ ATTENTION cette opération est longue est le fichier yuv créé est TRES grand (~40Go facilement pour quelques minutes de vidéo)
+
+	- Une fois que le fichier yuv est créér, il faut le découper en tuiles avec la commande suivante :
+		kvazaar -i fichier_source.yuv --input-res 4096x2048 -o fichier_sortie.hvc --tiles 3x3 --slices tiles --mv-constraint frametilemargin --input-fps 29
+
+		- Le paramètre "--input-res <int>x<int>"" correspond à la résolution en pixel de la vidéo source (le fichier mp4) par exemple 1920x1080
+		- Le paramètre "--tiles <int>x<int>" correspond au nombre de tuiles à découper dans la vidéo : 3x3 permet de découper la vidéo en 9 tuiles au total, 3 en largeur et 3 en hauteur. 
+		- Le paramètre --input-fps correspond à la fréquence d'image de la vidéo source (généralement 29.4 arrondi à 30)
+		- Le paramètre --mv-constraint permet d'indiquer que les mouvements (de la souris) sont pris en compte dans l'encodage de la vidéo.
+
+	- Ensuite il faut ajouter les différentes tuiles en une vidéo avec la commande :
+		MP4Box -add fichier.hvc:split_tiles -fps 29 -new tiled.mp4
+
+		- "fichier.hvc" correspond au fichier hvc créé par la commande kvazaar précédente
+		- "-fps" c'est le nombre d'images par secondes de la vidéo qui est le même depuis le début (souvent c'est 30 images par secondes) 
+		- "tiled.mp4" est le fichier de sortie qui contient toutes les tuiles.
+
+	- Puis on exporte notre vidéo avec Dash en utilisant la commande suivante :
+		MP4Box -dash 10000 -rap -frag-rap -out dash_tiled.mpd tiled.mp4
+
+		- "dash_tiled.mpd" est le nom du fichier de sortie. ce fichier est un descripteur de flux, il contient les noms des différentes tuiles et leur paramètres.
+		- "tiled.mp4" est le nom du fichier créé avec la commande précédente.
+
+	- Il ne reste plus qu'a lancer le client pour lire la vidéo. Pour cela il faut se trouver dans le même répertoire que le celui ou se trouve le fichier ".mpd" et les fichier qui se nomment "track" (normalement il y en a plusieurs (9 normalement)).
+	- Pour lancer le lecteur (player) on utilise la commande :
+		MP4Client dash_tiled.mpd#360LIVE
+
+		- on ajoute #360LIVE collé à la fin du fichier pour lire la vidéo en 360° si on enlève cette partie cela affiche la vidéo applatie.
