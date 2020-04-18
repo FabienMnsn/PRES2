@@ -34,13 +34,9 @@ PARTIE (A) INSTALLATION DES OUTILS
 
 
 3) INSTALLATION de Gpac
-	- Premièrement il faut se placer dans son homedir (/home/nom_utilisateur/)
-	- Ensuite il faut copier le code source de gpac depuis le github avec la commande suivante :
-		git clone https://github.com/gpac/gpac.git
-	- Ensuite on entre dans le dossier gpac/ qui vient d'être créé et on tape les commande suivantes :
-		./configure --static-mp4box --use-zlib=no
-		make -j4
-		sudo make install
+	- Premièrement il faut se placer dans son homedir (/home/nom_utilisateur/) et creer un repertoire GPAC/
+	- Ensuite il faut suivre les étapes decrites sur la page web suivante :
+		https://github.com/gpac/gpac/wiki/GPAC-Build-Guide-for-Linux
 	- On peut vérifier que l'installation est bien faite avec la commande :
 		man MP4Box 
 		man MP4Client
