@@ -1,0 +1,18 @@
+______________________________
+liste des trucs qui marchent:
+-MP4Box et MP4Client
+-Tiling d'une video avec kvazaar choix du nombre de tuiles
+-Encodage de la meme vidéo source avec plusieurs bitrate correspondant aux differentes qualités de la vidéo avec kvazaar
+-Création du fichier mpd (descripteur de flux, avec la commande MP4Box -dash)
+-Lecture d'un flux (mpd) depuis le localhost avec le client gpac (mono bitrate)
+-Lecture d'un flux (mpd) depuis le réseau (mono bitrate)
+-Combinaison des differents bitrate dans un même flux
+
+__________________________________
+liste des trucs qui marchent pas:
+-La taille des fichier encodé en yuv (nécéssaire pour kvazaar) est gigantesque 1min de 4k30ips = 50Go 
+-Le temps d'encodage (kvazaar) avec différents bitrate est très très long +de 2h pour de la full HD (qui n'est meme pas la meilleur qualité)
+-Lecture d'un flux multi bitrate ( la qualité ne change jamais elle reste toujours sur la plus basse)
+-Impossibilité de changer la methode d'adaptation de la qualité autrement que dans l'interface graphique
+-Changement des paramètres du fichier de configuration => aucune incidence sur le player , le fichier de configuration ne sert a rien...
+-Lecture des exemples de flux multi bitrate fournis par l'equipe gpac (les fichiers ne sont pas corrects et font crasher le player...) aucun exemple n'est fonctionnel...
