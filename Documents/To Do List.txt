@@ -1,0 +1,17 @@
+- Rédiger le rapport en respectant les limites de mots cette fois. les differentes parties sont les suivantes:
+	- cahier des charges inchangé, c'est le même que celui du rapport 1
+	- plan du développement adapté (mis à jour) + gantt
+	- la bibliographie actualisée [1000-1500 mots] (dans notre cas c'est inutile car les articles que l'on a trouvé sont tous importants)
+	- l'analyse actualisée [1000-1500 mots]
+	- la conception réalisée [1000-1500 mots]
+	- un compte rendu de projet [1500-2500 mots] (detail du déroulement, de la réalisation, la validation et la livraison de ce qui est demandé)
+	- annexes (useless dans notre cas je pense)
+
+
+- Tester les performances réseau d'une vidéo 360 en stream avec 2 ou 3 résolutions différentes, refaire les tests plus d'une dizaine de fois pour obtenir des valeurs cohérentes.
+
+
+- Tester les performances réseau en gardant le même système avec une vidéo sans ROI (sans tuiles, avec tuiles mais avec une seule résolution, etc...) et il faut encore faire les tests plus de 10 fois pour avoir des valeurs exploitables.
+
+
+- Trouver une conclusion sur les expérimentation de notre projet (exemple : les ROI diminuent le traffic réseau (et donc la charge réseau globale) lié à la transmission d'une vidéo très haute résolution)
