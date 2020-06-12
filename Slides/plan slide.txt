@@ -1,0 +1,21 @@
+Conseils pour la soutenance:
+	- style slide simple (noir sur blanc = bien)
+	- police taille minimum = 18
+	- pas de code
+	- pas d'animation sauf pour une meilleur compréhension
+	- 10 à 20 transparents
+
+
+Exemple de plan :
+	- présentation sujet et des membres du groupes (1 slide)
+		- slide avec nos prenom et noms plus titre du projet sans acronymes
+	- contexte technologique (1 à 3 slides)
+		
+	- cahier des charges (1 slide)
+	- analyse (2 à 4 slides)
+	- developpement (4 à 10 slides)
+	- bilan du projet (1 slide)
+
+
+Exemple de plan pour la vidéo de démonstration:
+	- 
