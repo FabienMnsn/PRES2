@@ -1,21 +1,53 @@
+____________________________
 Conseils pour la soutenance:
 	- style slide simple (noir sur blanc = bien)
 	- police taille minimum = 18
 	- pas de code
-	- pas d'animation sauf pour une meilleur compréhension
-	- 10 à 20 transparents
+	- pas d'animation sauf pour une meilleure compréhension
+	- 10 à 20 transparents max
+
+________________________________
+Exemple de plan pour les slides: [TOTAL = 16 slides utiles, 20 au total en comptan les animations ]
+	
+	- présentation du sujet et des membres du groupes (1 slide) [1 slide]
+		- slide avec nos prenom et noms plus titre du projet sans acronymes détaillée "région d'intérêt" pas ROI
+		- commencer par se présenter prénom puis noms puis introduire le sujet de recherche.
+		- faire une présentation à l'oral du plan de la soutenance : ex: dans une première partie nous allons détailler le principe théorique du streaming adaptatif. dans un second temps nous vous détaillrons l'application pratique du principe appuyé par une demonstration vidéo. Nous terminerons par une conclusion. (pas de slide de plan cela ne sert à rien)
+	
+	- contexte technologique (1 à 3 slides) [3 slides]
+		- phrase d'intro de la partie : "avant d'aborder la partie théorique, une définition de quelques termes importants s'impose !"
+		- définition des principes que nous allons utiliser au cours de la présentation : DASH streaming, ROI, tuile... juste pour faire comprendre aux gens de quoi on parle car ils ne connaissent peut être pas les termes propre à la vidéo.
+		- exemple on peut avoir 3 slides qui définissent chacun un concept (streaming adaptatif, région d'intérêt, tuile) avec quasiment des définition de dictionnaire, très courtes et facile à comprendre
+	
+	- cahier des charges (1 slide) [1 slide]
+		- Les objectifs du projet : ce que nous devons réaliser (cf. la description du projet par le prof). il faut que cela soit résumé sous forme de phrases très courtes (éviter au max le texte sur un slide)
+		- on peut aussi rapidement mentionner l'objectif de faire une documentation de notre projet. 
+	
+	- analyse (2 à 4 slides) [5 slides animations comprise dedans donc en vrai il n'y a que 3 slides max]
+		- présentation des différents mode de découpage en tuiles existant (carré, ect...)
+		- segmentation en fichier de 1500 octet pour le dashing et autre détail théorique qui va bien dans cette partie analyse.
+		- la partie théorique pour mettre en place notre système, appuyée par notre bibliographie (image de la chaine théorique sans les noms des encodeurs ni le détail du fonctionnement dans un premier temps) (ce schéma sera potentiellement sur plusieurs slides pour faire apparaitre les composant un à un pour une meilleure compréhension)
+
+	- developpement (4 à 10 slides) [5 slides]
+		- ici on parle de la mise en place de notre environnement de test (présentation rapide de l'architecture réseau avec les 2 machines client/serveur)[schéma], des outils et logicels utilisés : ffmpeg, kvazaar, gpac, apache, etc... (logos et noms) [2 slides pour cette sous partie, un pour schéma réseau test et un autre pour les logiciels utilisés]
+		- ne pas oublier de parler brievement de la documentation au format texte que nous avons réalisée ainsi que de notre repertoire public sur github pour aider les prochains sur le sujet.
+		- avant de parler des problèmes rencontrés, on peut afficher la vidéo de démo [VIDEO 5 min] [1 slide vide avec la mention "démonstration" ou pas de slide]
+		- on aborde aussi les différents problèmes rencontrés ex : limitation du nombre de tuile en découpage, [une série de slides avec la liste des problèmes rencontrés] nombre de bitrates différents limité, le problème de la ROI qui ne marche pas comme on le veut même avec la qpmap, et globalement les limites du lecteur GPAC.
+	
+	- bilan du projet (1 slide) [2 slides + 1 slide merci de votre attention?]
+		- une conclusion rapide :
+			- il est IMPORTANT de dire que c'est une reussite dans le sens ou nous avons reussi à mettre en place un système de streaming complet malgré les pb du lecteur
+			- il faut aussi  parler de l'intérêt d'un tel système (possibilité de regarder une vidéo qui est nativement en 4k avec une bande passante inférieur au débit de la vidéo en perdant en qualité et autres avantages)  
+			- pourquoi pas parler des inconvéniants d'un tel système, ex: requiert suffisament de puissance de calcul pour traiter le fichier brut et le rendre streamable.
+			- faire une ouverture sur la possibilité de tester avec une architecture réseau stable (pas en wifi)
 
 
-Exemple de plan :
-	- présentation sujet et des membres du groupes (1 slide)
-		- slide avec nos prenom et noms plus titre du projet sans acronymes
-	- contexte technologique (1 à 3 slides)
-		
-	- cahier des charges (1 slide)
-	- analyse (2 à 4 slides)
-	- developpement (4 à 10 slides)
-	- bilan du projet (1 slide)
+_________________________________________________________________
+Exemple de plan pour la vidéo de démonstration (vidéo de 5 min ):
+	[INFO] : durée de la vidéo = 5 min, 3 sequences -> chaque séquence dure 100s = 1min40s
+	
+	- sequence n°1 : vidéo source avec en projection equirectangulaire, vidéo brut non traitée (on peut montrer la vidéo a plat et la vidéo en VR)
+	
+	- séquence n°2 : vidéo découpée en tuiles, on peut montrer différents découpages 3x3 et 7x7 pas plus (d'abord a plat pour bien voir les tuiles puis en VR)
 
-
-Exemple de plan pour la vidéo de démonstration:
-	- 
+	- séquence n°3 : vidéo avec tout : le déoupage en tuile et le multibitarte ainsi que les statistiques de lecture.
