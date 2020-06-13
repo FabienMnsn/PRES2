@@ -10,7 +10,7 @@ ________________________________
 Exemple de plan pour les slides: [TOTAL = 16 slides utiles, 20 au total en comptan les animations ]
 	
 	- présentation du sujet et des membres du groupes (1 slide) [1 slide]
-		- slide avec nos prenom et noms plus titre du projet sans acronymes détaillée "région d'intérêt" pas ROI
+		- slide avec nos prenoms et noms plus titre du projet sans acronymes détaillée "région d'intérêt" pas ROI
 		- commencer par se présenter prénom puis noms puis introduire le sujet de recherche.
 		- faire une présentation à l'oral du plan de la soutenance : ex: dans une première partie nous allons détailler le principe théorique du streaming adaptatif. dans un second temps nous vous détaillrons l'application pratique du principe appuyé par une demonstration vidéo. Nous terminerons par une conclusion. (pas de slide de plan cela ne sert à rien)
 	
