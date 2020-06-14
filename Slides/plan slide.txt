@@ -50,4 +50,4 @@ Exemple de plan pour la vidéo de démonstration (vidéo de 5 min ):
 	
 	- séquence n°2 : vidéo découpée en tuiles, on peut montrer différents découpages 3x3 et 7x7 pas plus (d'abord a plat pour bien voir les tuiles puis en VR)
 
-	- séquence n°3 : vidéo avec tout : le déoupage en tuile et le multibitarte ainsi que les statistiques de lecture.
+	- séquence n°3 : vidéo avec tout : le déoupage en tuile et le multibitrate ainsi que les statistiques de lecture.
