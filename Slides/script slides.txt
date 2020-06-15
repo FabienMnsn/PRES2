@@ -72,7 +72,7 @@ slide 15 :
 
 ______________________________________________________________________________________________________________________
 slide 16 :
-- vidéo de démo, on peut donner le lieux de la vidéo d'il na pas déja été mentionné plus tôt (ruines de temple à Ayutthaya en Thaïlande).
+- vidéo de démo, on peut donner le lieux de la vidéo s'il na pas déja été mentionné plus tôt (ruines de temple à Ayutthaya en Thaïlande).
 - Pour chaque paire de vidéo, il y en a 3, il faut faire un bref commentaire sur ce que l'on voit:
 	- Pour la premiere paire :  on peut simplement lister les points important des statistique de la vidéo (bitrate, fréquence d'image et résolution).
 	- Pour la seconde apire, il faut présicer qu'il n'y a qu'un seul bitrate qui ets faible pour bien voir les tuiles(cette vidéo sert a montrer le découpage en tuiles). On peut aussi montrer les quelques tuiles encadrées.
