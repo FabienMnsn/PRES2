@@ -1,0 +1,24 @@
+slide 1 : Sonia, Fabien, Alexandre
+slide 2 : Sonia
+slide 3 : Sonia
+slide 4 : Sonia
+slide 5 : Alexandre
+slide 6 : Alexandre
+slide 7 : Alexandre
+slide 8 : Alexandre
+slide 9 : Fabien
+slide 10: Fabien
+slide 11: Fabien
+slide 12: Fabien
+slide 13: Fabien
+slide 14: Fabien
+slide 15: Fabien
+slide 16: Sonia, Alexandre, Fabien (chacun fait 2 vidéos Sonia commence avec les deux vidéos de base, ensuite Alexandre parle du découpage en tuile (2 vidéo suivantes) et je termine avec le changement de bitrate (encore 2 vidéos))
+slide 17: Sonia
+slide 18: Sonia
+slide 19: Sonia
+slide 20: Alexandre
+slide 21: Alexandre
+slide 22: Alexandre
+slide 23: Fabien
+slide 24: Fabien
