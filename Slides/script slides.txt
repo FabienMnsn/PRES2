@@ -1,0 +1,125 @@
+______________________________________________________________________________________________________________________
+slide 1 :
+- Bonjour + présentation des membres du groupe + présentation du projet.
+
+______________________________________________________________________________________________________________________
+slide 2 :
+- Préciser à l'oral que la ROI peut être statique ou dynamique mais que l'on reviendra sur ces deux différences au slide 7.
+
+______________________________________________________________________________________________________________________
+slide 3 :
+- Préciser qu'il existe plusieurs type de découpage en tuile possible sans détailler lesquels cela sera fait au slide 6
+- Préciser dans la partie a quoi ça sert : en effet chaque tuile peut être changée indépendamment des autre.
+
+______________________________________________________________________________________________________________________
+slide 4 :
+- Ajouter à l'oral dans la partie A quoi cela sert? : ce type de diffusion permet de s'adapter aux fluctuations (variations) de bande passante.
+
+______________________________________________________________________________________________________________________
+slide 5 :
+- Rien a dire de plus que ce qui est sur le slide.
+
+______________________________________________________________________________________________________________________
+slide 6 :
+- Dans ce slide il faut commencer par détailler les paramètres de la découpe (en haut) puis ensuite passer sur la gauche et préciser qu'il existe d'autres types de découpage, citer l'exemple : on peut découper une seule tuile en haut et une seule tuile en bas car ce sont des régions que l'on ne ragarde quasiment jamais (sauf cas particulier)
+- Expliquer rapidement que chaque tuile est encodée en plusieurs birates différents. 
+- Ne pas passer trop de temps sur la projection sphérique car le schéma ne concerne pas celle que l'on a utilisé... Il faut juste expliquer que c'est le lecteur qui réassemble les tuiles. 
+
+______________________________________________________________________________________________________________________
+slide 7 :
+- dans ce slide on peut commencer par dire qu'il existe deux type de ROI : statique ou dynamique, donner un exemple rapide pour chaque (ex statique: on défini la tuile centrale comme la plus prioritaire, ex dynamique : montrer l'exemple sur le slide, il faut aussi préciser que dans nos test nous utilisons la ROI qui suit le viewport (champs de vision)).
+
+______________________________________________________________________________________________________________________
+slide 8 :
+- Voici la chaine de streaming théorique (qui est tirée d'un article de recherche). Dans un premier temps il faut découper la la vidéo en tuiles, ensuite il faut encoder chaque tuile dans un ou plusieurs bitrates puis il faut encapsuler les tuiles pour les rendres streamables et les placer sur un serveur. Ensuite on peut préciser que le lecteur fait des requetes web au serveur pour choisir le bitrate qui convient le mieux.
+- Terminer ce slide par une transition du type : "Nous allons maintenant vous présenter notre chaine de streaming".
+
+______________________________________________________________________________________________________________________
+slide 9 :
+- Commencer par dire qu'il faut un média source on peut donner une anecdote sur la vidéo utilisée ou cela se trouve :
+(ruines de temple à Ayutthaya en Thaïlande).
+
+______________________________________________________________________________________________________________________
+slide 10 :
+- Ensuite qu'il faut le décompresser au format YUV pour pouvoir réaliser le découpage en tuiles.
+
+______________________________________________________________________________________________________________________
+slide 11 :
+- Dire qu'on utilise kvazaar pour encoder différentes version de chaque tuile (préciser quelques paramètres ex: --bitrate 50 000 000). Il est important de souligner que kvazaar encode en HEVC.
+- Terminer cer slide par une transition " voila ce schéma présentait la partie encodage vidéo, nous allons passer à la partie streaming HTTP".
+
+______________________________________________________________________________________________________________________
+slide 12 :
+- Commencer par dire que l'on a toujours nos tuiles, encodées en plusieurs bitrates.
+
+______________________________________________________________________________________________________________________
+slide 13 :
+- Préciser que l'on utilise MP4Box -add (qui est un logiciel GPAC pour fair du DASH) pour encapsuler les tuiles au format HEVC dans un conteneur MP4. CHaque tuile est une piste mp4 (un fichier par piste).
+- Ensuite on utilise encore MP4Box mais avec l'option -dash pour segementer les fichiers vidéo en plus petits fichiers facile à faire transiter sur le réseau (generalement 1500 octets).
+- La commande terminer par générer un descripteur de flux qui n'est rien d'autre qu'un fichier xml détaillant les différents bitrates disponibles.
+
+______________________________________________________________________________________________________________________
+slide 14 :
+- Enfin, l'utilisateur dispose d'un lecteur capable de lire le descripteur de flux et de faire les requêtes réseau nécessaires à la récupération des tuiles. 
+- On précise aussi que serveur/client sont sur 2 machines différentes.
+
+______________________________________________________________________________________________________________________
+slide 15 :
+- Présenter l'architecture réseau de test (enfin celle qui est la plus stable)
+- préciser que l'on a testé avec un client mobile mais que pour des raisons de simplicité on est resté sur la version PC du lecteur.
+- Il est important de donner less vitesses de bande passante (car cela permet d'expliquer la vidéo de démonstration plus tard).
+- Il faut aussi préciser que la connexion wifi entre le serveur et le routeur n'est pas des plus stable...
+
+______________________________________________________________________________________________________________________
+slide 16 :
+- vidéo de démo, on peut donner le lieux de la vidéo d'il na pas déja été mentionné plus tôt (ruines de temple à Ayutthaya en Thaïlande).
+- Pour chaque paire de vidéo, il y en a 3, il faut faire un bref commentaire sur ce que l'on voit:
+	- Pour la premiere paire :  on peut simplement lister les points important des statistique de la vidéo (bitrate, fréquence d'image et résolution).
+	- Pour la seconde apire, il faut présicer qu'il n'y a qu'un seul bitrate qui ets faible pour bien voir les tuiles(cette vidéo sert a montrer le découpage en tuiles). On peut aussi montrer les quelques tuiles encadrées.
+	- Pour la dernière vidéo, il faut bien incister sur le changement de bitrate (que l'on voit en rouge en bas à gauche)
+	On peut repasser cette partie de la vidéo pour bien voir, il faut aussi expliquer que les arrêt sur image sont un problème du lecteur qui n'arrive pas à charger un grand nombre de tuiles en même temps..
+
+- Terminer ce slide par une transition vers les mesures de réseau.
+
+______________________________________________________________________________________________________________________
+slide 17 :
+- En premier il faut donner le contexte, nombre de bitrates et nombre de tuiles.
+- Ensuite il faut préciser que les statitiques sur la droite ne sont pas tout correctes ni interrésantes, il faut se concentrer sur le bitrate moyen et la courbe des FPS (en rouge) et celle du buffer (en bleu).
+- Terminer par dire que l'experience de lecture est fluide.
+
+______________________________________________________________________________________________________________________
+slide 18 :
+
+- Comme le slide précédent, il faut rappeler le contexte vidéo (3 bitrates différents : 500Kbps, 3Mbps et 10Mbps) il faut incister sur la limite de bande passante à 1Mbps et mettre en relation avec le bitrate moyen; On peut dire que le lecteur reussi a choisir le bon bitrate qui correspond à la bande passante disponible.
+- Terminer par dire que l'experience de lecture est fluide.
+
+______________________________________________________________________________________________________________________
+slide 19 :
+- Avec les mêmes paramètres, si on augmente la limite de bande passante au dessus de celle disponible réellement (~2.5Mbps pour le serveur en Wifi), on remarque que le lecteur sélectionne un bitrate plus élevé que le précédent (average bitrate)
+- Terminer par dire que l'experience de lecture est fluide sauf au début ou il a du mal à s'adapter rapidement (c'est un problème du lecteur).
+
+______________________________________________________________________________________________________________________
+slide 20 :
+- Temps d'encodage : donner un exemple pour 3min de vidéo si on découpe en 9 tuiles et qu'on encode en 50Mbps cela prend quasiment 2h
+- Taille et nombre de fichiers : pour 3min de vidéo 4K (800Mo), si on décompresse au format YUV on obtient 200Go de données. Avec 9 tuiles et 3 bitrates on obtient plus de 15 000 fichiers (segments) dans un seul dossier.
+- Architecture de test limitée : WIFI qui n'est pas stable ni très performant.
+- les limites du nb de tuiles et de bitrates sont des pb logiciels lié au lecteur lui même.
+- Choix de la ROI limité : on a fait plein de test avec différents algorithmes de ROI sans succès, le seul qui marche bien c'est celui du viewport. 
+- stabilité du lecteur : Crash récurrent du lecteur pendant le chargement des tuiles sans aucun message d'erreur.
+
+______________________________________________________________________________________________________________________
+slide 21 :
+voir le slide 22
+______________________________________________________________________________________________________________________
+slide 22 :
+- Pour les limites matérielle on peut dire en plus que l'on a fait au mieux en optimisant l'encodage pour nos machines.
+- pour les limites logicielles, on a testé un autre lecteur dash.js en javascript sans succès.
+
+______________________________________________________________________________________________________________________
+slide 23 :
+- Ajouter en plus des points du slide que nous avons fait une documentation décrivant étape par étape comment faire pour mettre en place notre architecture de streaming (toute la partie logicielle en tout cas).
+
+______________________________________________________________________________________________________________________
+slide 24 :
+- terminer avec un truc du genre :
+"La présentation, est maintenant terminée, nous vous remercions de votre attention. Avez-vous des questions?""
